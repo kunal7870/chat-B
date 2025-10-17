@@ -4,11 +4,13 @@ import express from "express";
 import { Socket } from "dgram";
 
 const app = express()
+const FRONTEND_URI = process.env.FRONTEND_URI || "http://localhost:3001";
+
 
 const server = http.createServer(app)
 const io = new Server(server,{
     cors:{
-        origin:["http://localhost:3001"],  //frontend url
+        origin:[FRONTEND_URI],  //frontend url
         methods:["GET","POST"],
     }
 })
